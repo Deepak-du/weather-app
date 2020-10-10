@@ -86,7 +86,7 @@ $(document).ready(function () {
                     ]
 
 
-                    for(let icon of weatherIcons) {
+                    for(const icon of weatherIcons) {
                         const { name,weather } = icon
                         icons.set(name,weather)
                     }
