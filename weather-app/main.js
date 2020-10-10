@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
-        var lat;
-        var long;
+        let lat;
+        let long;
     
         if (navigator.geolocation) {
     
@@ -10,14 +10,14 @@ $(document).ready(function () {
                 lat = position.coords.latitude;
                 long = position.coords.longitude;
     
-                var api = 'https://fcc-weather-api.glitch.me/api/current?lat=' + lat + '&lon=' + long + '';
+                const api = `{https://fcc-weather-api.glitch.me/api/current?lat=' + ${lat}&lon=${long}`};
     
                 $.getJSON(api, function (res) {
     
-                    var celsius = res.main.temp;
-                    var farenheit = (celsius * 1.8) + 32;
+                    let celsius = res.main.temp;
+                    let fahrenheit = (celsius * 1.8) + 32;
     
-                    var location = res.name;
+                    let location = res.name;
                     
     
     
@@ -27,7 +27,7 @@ $(document).ready(function () {
                     $('.weatherType').attr('id', res.weather[0].main);
                     $('.row2').on('click', function () {
                         if ($('.temp').html() == (Math.floor(celsius))) {
-                            $('.temp').html(Math.floor(farenheit));
+                            $('.temp').html(Math.floor(fahrenheit));
                             $('.temp-type').html('°F');
     
                         } else {
@@ -38,23 +38,61 @@ $(document).ready(function () {
     
     
                     //SETTING UP THE ICON 
-                    var icons = new Skycons({
+                    let icons = new Skycons({
                         "color": "white"
                     });
-    
-                    icons.set("Clear", Skycons.CLEAR_DAY);
-                    icons.set("Clear-night", Skycons.CLEAR_NIGHT);
-                    icons.set("Partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
-                    icons.set("Partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
-                    icons.set("Clouds", Skycons.CLOUDY);
-                    icons.set("Rain", Skycons.RAIN);
-                    icons.set("Sleet", Skycons.SLEET);
-                    icons.set("Snow", Skycons.SNOW);
-                    icons.set("Wind", Skycons.WIND);
-                    icons.set("Fog", Skycons.FOG);
-                    icons.play();
-    
-                });
+                    
+                    const weatherIcons = [
+                        {
+                            name: "Clear",
+                            weather: Skycons.CLEAR_DAY
+                        },
+                        {
+                            name: "Clear-night",
+                            weather: Skycons.CLEAR_NIGHT
+                        },
+                        {
+                            name: "Partly-cloudy-day",
+                            weather: Skycons.PARTLY_CLOUDY_DAY
+                        },
+                        {
+                            name: "Partly-cloudy-night",
+                            weather: Skycons.PARTLY_CLOUDY_NIGHT
+                        },
+                        {
+                            name: "Clouds",
+                            weather: Skycons.CLOUDY
+                        },
+                        {
+                            name: "Rain",
+                            weather: Skycons.RAIN
+                        },
+                        {
+                            name: "Sleet",
+                            weather: Skycons.SLEET
+                        },
+                        {
+                            name: "Snow",
+                            weather: Skycons.SNOW
+                        },
+                        {
+                            name: "Wind",
+                            weather: Skycons.WIND
+                        },
+                        {
+                            name: "Fog",
+                            weather: Skycons.FOG
+                        },
+                    ]
+
+
+                    for(let icon of weatherIcons) {
+                        const { name,weather } = icon
+                        icons.set(name,weather)
+                    }
+                    icons.play()
+                    
+                
             });
         }
     });
