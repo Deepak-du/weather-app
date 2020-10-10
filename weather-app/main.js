@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(document).ready( () => {
 
-        var lat;
-        var long;
+        let lat;
+        let long;
     
         if (navigator.geolocation) {
     
@@ -10,9 +10,9 @@ $(document).ready(function () {
                 lat = position.coords.latitude;
                 long = position.coords.longitude;
     
-                var api = 'https://fcc-weather-api.glitch.me/api/current?lat=' + lat + '&lon=' + long + '';
+                const api = 'https://fcc-weather-api.glitch.me/api/current?lat=' + lat + '&lon=' + long + '';
     
-                $.getJSON(api, function (res) {
+                $.getJSON(api, res => {
     
                     var celsius = res.main.temp;
                     var farenheit = (celsius * 1.8) + 32;
@@ -25,7 +25,7 @@ $(document).ready(function () {
                     $('.temp').html(Math.floor(celsius));
                     $('.weather-description').html(res.weather[0].description);
                     $('.weatherType').attr('id', res.weather[0].main);
-                    $('.row2').on('click', function () {
+                    $('.row2').on('click', () => {
                         if ($('.temp').html() == (Math.floor(celsius))) {
                             $('.temp').html(Math.floor(farenheit));
                             $('.temp-type').html('°F');
