@@ -73,6 +73,7 @@
     .weather-description{
         text-align: center;
         color: white;
+        text-transform: capitalize;
     }
     .weather-days{
         display: flex;

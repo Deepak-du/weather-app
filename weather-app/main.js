@@ -16,11 +16,8 @@ $(document).ready(function () {
     
                     var celsius = res.main.temp;
                     var farenheit = (celsius * 1.8) + 32;
-    
                     var location = res.name;
                     
-    
-    
                     $('.weather-location').html(location);
                     $('.temp').html(Math.floor(celsius));
                     $('.weather-description').html(res.weather[0].description);
