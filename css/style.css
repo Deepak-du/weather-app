@@ -2,6 +2,9 @@
   padding: 0px;
   margin: 0px;
 }
+html {
+  user-select: none;
+}
 .container {
   height: 100vh;
   display: flex;
@@ -31,52 +34,43 @@
   animation-duration: 2s;
   position: relative;
 }
-.row1 {
+.row {
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  border-bottom: 1px solid white;
   padding-bottom: 30px;
+}
+.sp_arrow {
+  justify-content: space-around;
 }
 .weather-location {
   color: white;
 }
-
 .city {
   font-size: 50px;
 }
-
 .country {
   font-size: 25px;
 }
-
 .weather-icon {
   width: 100px;
 }
-.row2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-}
-.row2:hover .temp {
+.row:hover .temp {
   color: #41a5cf;
 }
-.row2:hover .temp-type {
+.row:hover .temp-type {
   color: white;
 }
 .temp {
   color: white;
   font-size: 80px;
-  cursor: pointer;
   pointer-events: auto;
   transition: color 1s;
 }
 .temp-type {
   color: #3eb9e6;
   font-size: 80px;
-  cursor: pointer;
   transition: color 1s;
 }
 .weather-description {
@@ -92,8 +86,7 @@
 
   width: 50%;
 }
-.block1,
-.block2 {
+.block {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,7 +100,6 @@
   padding: 10px;
   font-size: 18px;
 }
-
 .made-by-ajay {
   color: white;
   position: fixed;
@@ -116,7 +108,6 @@
   padding: 10px;
   font-size: 18px;
 }
-
 a:link,
 a:visited {
   text-decoration: none;
@@ -124,48 +115,50 @@ a:visited {
   font-size: 20px;
   transition: all 0.3s;
 }
-
 a:hover {
   transform: scale(1.2);
 }
-
 .location {
+  max-width: -webkit-fill-available;
   border: none;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   font-size: 24px;
-  width: 20%;
   padding: 10px;
-  position: absolute;
-  top: 20px;
   background-color: rgba(255, 255, 255, 0.8);
   color: #311847;
 }
-
 .location:focus {
   outline: none;
   border-bottom: 5px solid orangered;
 }
-
 .btn {
   border: none;
-  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
   font-size: 18px;
-  padding: 10px;
-  position: absolute;
-  top: 80px;
+  padding: 13.5px;
   background-color: rgba(255, 255, 255, 0.8);
   color: #311847;
   transition: all 0.3s;
 }
-
 .btn:focus {
   outline: none;
 }
-
 .btn:active {
   transform: scale(0.8);
 }
-
+#AlertMessage {
+  color: white;
+  background-color: #bf3434;
+  margin: 10px 0;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+}
 @keyframes introduction {
   0% {
     bottom: -320px;
@@ -176,7 +169,6 @@ a:hover {
     bottom: 0px;
   }
 }
-
 @media screen and (max-width: 480px) {
   .row1 {
     flex-direction: column;
@@ -195,8 +187,5 @@ a:hover {
   }
   .weather-days {
     font-size: 16px;
-  }
-  .container {
-    height: 130vh;
   }
 }
