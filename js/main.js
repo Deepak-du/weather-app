@@ -21,7 +21,8 @@ function successFunction(position) {
 }
 
 function errorFunction(position) {
-  alert('Error!');
+  document.getElementById("AlertMessage").classList.remove('hidden')
+  //alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Or you have blocked the geolocalication on this page.');
 }
 
 function getData(rurl) {
