@@ -113,31 +113,4 @@
     
     
     
-    @media screen and (max-width: 480px) {
-        
-        .row1{
-            flex-direction: column;
-        }
-        .weather-location{
-            font-size: 30px;
-        }
-        .made-by{
-            display: none;
-        }
-        .block1{
-            padding: 20px;
-        }
-        .block2{
-            padding: 20px;
-        }
-        .weather-days{
-            font-size: 16px;
-        }
-        .container{
-            height: 130vh;
-        }
-        
-        
-       
-        
-    }
+    
