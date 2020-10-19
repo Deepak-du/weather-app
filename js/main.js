@@ -44,6 +44,7 @@ function generateHTMl(data) {
   $('#icon1').attr('src', data.current.condition.icon);
   $('.temp').text(data.current.temp_c);
   $('.weather-description').text(data.current.condition.text);
+  $('.weatherType').css('opacity', '1');
 }
 
 function click() {
