@@ -189,3 +189,6 @@ a:hover {
     font-size: 16px;
   }
 }
+.weatherType{
+  opacity: 0;
+}
